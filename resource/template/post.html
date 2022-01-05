@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>post</h1>
+    <section class="watchlist">
+    {% for i in data %}
+        <a href="/movie/{{ i.id }}" class="movie-item">
+            <img src="#" alt={{ i.title }}>
+            <h2 class="item-title">{{ i.title }}</h2>
+            <span class="item-rate">{{ "★"+i.rating }}</span>
+            <p class="item-content">{{ i.content }}</p>
+            <p>감상일 {{ i.pubDate | date("YYYY-MM-DD")}}</p>
+            <p>작성일 {{ i.watchDate | date("YYYY-MM-DD")}}</p>
+        </a>
+    {% endfor %}
+    </section>
+    <!-- Pager-->
+    <div class="pager">
+        <a class="btn" href="/movie/write">글쓰기</a>
+    </div>
+
+{% endblock %}

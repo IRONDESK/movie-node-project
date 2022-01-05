@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="post-cont">
+    <h1 class="post-title">{{ movie.title }}</h1>
+    <span class="post-rate">{{ "★".repeat(movie.rating) }}</span>
+    <p class="post-content">{{ movie.content }}</p>
+    <p> 감상일 {{ movie.watchDate | date("YYYY년 M월 D일")}}</p>
+    <p> 작성일 {{ movie.pubDate | date("YYYY년 M월 D일")}}</p>
+</section>
+<div class="pager">
+    <a class="btn" href="edit/{{ movie.id }}">수정</a>
+    <a class="btn" href="del/{{ movie.id }}">삭제</a>
+</div>
+
+{% endblock %}
