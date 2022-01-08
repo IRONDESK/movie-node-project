@@ -1,86 +1,80 @@
 const express = require('express');
-let Movies = require('../database/dataMovie');
+let moviedatabase = require('../database/dataMovie.js');
 
 const router = express.Router();
 
-
+// 메인
 router.get('/', (req, res, next) => {
-    const data = Movies;
-    res.render('index.html', {data});
+    moviedatabase.getAll()
+    .then(data => res.render('index.html', {data}));
 })
 
+// 작성
 router.get('/write', (req, res, next) => {
     res.render('write.html');
 })
-router.get('/edit/:id', (req, res, next) => {
-    const id = req.params.id;
-    const movie = Movies.find(m => m.id == +id);
-    res.render('edit.html', {movie});
-})
 
+// 글보기
 router.get('/:id', (req, res, next) => {
     const id = req.params.id;
-    const movie = Movies.find(movie => movie.id == +id);
-    res.render('postdetails.html', {movie});
+    moviedatabase.findById(id)
+    .then(movie => res.render('postdetails.html', {movie}));
 })
 
+// 수정
+router.get('/edit/:id', (req, res, next) => {
+    const id = req.params.id;
+    moviedatabase.findById(id)
+    .then(movie => res.render('edit.html', {movie}));
+})
+
+
+// POST - 작성
 router.post('/', (req, res, next) => {
-    const id = Movies.length + 1;
+    // const id = moviedatabase.length + 1;
     const title = req.body.title;
     const content = req.body.content;
     const rating = req.body.rating;
     const watchDate = req.body.watchDate;
-    const pubDate = new Date().toString();
-    const MovieData = {
-        id, title, content, rating, watchDate, pubDate
+    let newMovieData = {
+        title, content, rating, watchDate
     }
-    Movies.push(MovieData);
-    // res.status(201).json(blog); // 201은 create
+
+    const item = moviedatabase.createMovie(newMovieData);
     res.redirect("/movie");
 })
 
-router.post('/edit/:id', (req, res, next) => {
+// PUT - 수정
+router.put('/:id', (req, res, next) => {
     const id = req.params.id;
-    const data = Movies.find(m => m.id === +id);
-    if (data){ // 각각의 값이 비어있을 수도 있음
-        data.updateOne(
-            id,
-            { $set: {
-            title : req.body.title,
-            content : req.body.content,
-            rating : req.body.rating,
-            watchDate : req.body.watchDate
-            }}
-            )
-        // res.status(200).json(Movies);
-        res.render('index.html', {data});
+
+    const title = req.body.title;
+    const content = req.body.content;
+    const rating = req.body.rating;
+    const watchDate = req.body.watchDate;
+    let updatedMovieData = {
+        title, content, rating, watchDate
+    }
+
+    moviedatabase.updateMovie(
+        {id},
+        {$set: updatedMovieData}
+    );
+    if (movie){ // 각각의 값이 비어있을 수도 있음
+        res.redirect("/movie");
     } else {
         res.status(404);
     }
 })
-// router.put('/edit/:id', (req, res, next) => {
-//     const id = req.params.id;
-//     const data = Movies.find(m => m.id === +id);
-//     if (data){ // 각각의 값이 비어있을 수도 있음
-//         data.title = req.body.title;
-//         data.content = req.body.content;
-//         data.rating = req.body.rating;
-//         data.watchDate = req.body.watchDate;
-//         // res.status(200).json(Movies);
-//         res.render('index.html', {data});
-//     } else {
-//         res.status(404);
-//     }
-// })
 
 // 삭제(DELETE) : blog/:id
 router.delete('/del/:id', (req, res, next) => {
     const id = req.params.id;
-    Movies = Movies.filter(b => b.id != id) 
-    res.render('index.html', {Movies});
-    // res.status(200).json(Movies); //굳이 204를 보내줄거면 200로
+
+    moviedatabase = moviedatabase.filter(b => b.id != id)
+    .then(movie => res.render('index.html', {movie}));
 })
 
 
 module.exports = router;
-module.exports.Movies = Movies; // 좋은 방법은 아닙니다. DB 할 때 다시 리펙토링 해야합니다.
+module.exports.moviedatabase = moviedatabase.getAll();

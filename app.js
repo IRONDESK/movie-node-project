@@ -1,21 +1,23 @@
-const nunjucks = require('nunjucks');
+const nunjucks = require('nunjucks'); // 넌적스 사용 문법
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
-const movieRouter = require('./router/movie.js');
 const dateFilter = require('nunjucks-date-filter');
+const methodOverride = require('method-override'); // PUT, DEL을 사용하기 위한 오버라이드
 const path = require('path');
 
 const app = express();
 app.set('view engine', 'html');
 
-경로 = path.join(path.join(__dirname + '/resource'), '/static');
-console.log(경로);
+// 라우터
+const movieRouter = require('./router/movie.js');
 
-app.use('/', express.static(경로));
-app.use('/movie', express.static(경로));
-app.use('/movie/edit', express.static(경로));
+// 경로
+pathSet = path.join(path.join(__dirname + '/resource'), '/static');
+app.use('/', express.static(pathSet));
+app.use('/movie', express.static(pathSet));
+app.use('/movie/edit', express.static(pathSet));
 
 let env = nunjucks.configure('resource/template', {
     autoescape: true,
@@ -30,9 +32,11 @@ app.use(express.urlencoded( {extended : false } ));
 app.use(helmet());
 app.use(cors());
 app.use(morgan('tiny'));
+app.use(methodOverride('_method'));
 
 app.get('/', (req, res, next) => {
-    const data = movieRouter.Movies;
+    const data = movieRouter.moviedatabase;
+    console.log('app.js에서 get');
     res.render('index.html', {data});
 });
 
@@ -52,27 +56,5 @@ app.use((err, req, res, next) => {
     console.log(err);
     res.sendStatus(500);
 })
-
-/////
-// var client_id = 'h0Ptr6nPWVY2Qqa7_mGP';
-// var client_secret = 'n9mp9GP0ic';
-// app.get('/searchnaver', function (req, res) {
-//    var api_url = 'https://openapi.naver.com/v1/search/movie.json?query=' + encodeURI(req.query.query); // json 결과
-//    var request = require('request');
-//    var options = {
-//        url: api_url,
-//        headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
-//     };
-//    request.get(options, function (error, response, body) {
-//      if (!error && response.statusCode == 200) {
-//        res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
-//        res.end(body);
-//      } else {
-//        res.status(response.statusCode).end();
-//        console.log('error = ' + response.statusCode);
-//      }
-//    });
-//  });
-
 
 app.listen(8080);

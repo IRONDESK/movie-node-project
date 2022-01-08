@@ -1,4 +1,5 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
 
 * {
@@ -12,6 +13,14 @@
   justify-content: center;
   gap: 45px;
 }
+.non-data {
+  margin: 145px 0;
+  display: block;
+  text-align: center;
+  font-family: 'Gowun Batang';
+  font-size: 24px;
+  line-height: 38px;
+}
 
 .main-title {
   margin: 55px 0px;
@@ -23,7 +32,7 @@
   color: #000;
 }
 .movie-item {
-  width: 240px;
+  width: 260px;
   display: block;
   padding: 20px;
   background: #fff;
@@ -49,9 +58,12 @@
   font-size: 18px;
 }
 .item-content {
-  margin: 10px 0;
-  font-size: 16px;
-  line-height: 18px;
+  margin: 16px 0;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  font-family: 'Gowun Batang', serif;
+  word-break: keep-all;
 }
 
 .pager {
@@ -63,10 +75,10 @@
   color: #fff;
   font-weight: 700;
   margin: 0px 5px;
-  padding: 6px 14px;
+  padding: 6px 20px;
   display: inline-block;
   font-size: 19px;
-  line-height:28px;
+  line-height: 29px;
   background-color: #333;
   border: 3px solid #333;
   box-sizing: border-box;
@@ -127,6 +139,12 @@
   font-weight: 700;
   color: crimson;
 }
+.post-content {
+  margin: 20px 0;
+  font-size: 25px;
+  font-family: 'Gowun Batang', serif;
+}
+
 @media (max-width: 640px) {
   .post-cont, .write-form {
     width: 92vw;

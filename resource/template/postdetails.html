@@ -9,8 +9,8 @@
     <p> 작성일 {{ movie.pubDate | date("YYYY년 M월 D일")}}</p>
 </section>
 <div class="pager">
-    <a class="btn" href="edit/{{ movie.id }}">수정</a>
-    <a class="btn" href="del/{{ movie.id }}">삭제</a>
+    <a class="btn" href="edit/{{ movie._id }}">수정</a>
+    <a class="btn" href="del/{{ movie._id }}">삭제</a>
 </div>
 
 {% endblock %}
