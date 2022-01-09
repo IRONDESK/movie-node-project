@@ -22,6 +22,7 @@
   line-height: 38px;
 }
 
+/* main */
 .main-title {
   margin: 55px 0px;
   text-align: center;
@@ -71,17 +72,17 @@
   text-align: center;
 }
 .btn {
-  cursor: pointer;
-  color: #fff;
-  font-weight: 700;
   margin: 0px 5px;
   padding: 6px 20px;
+  cursor: pointer;
   display: inline-block;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
   font-size: 19px;
   line-height: 29px;
   background-color: #333;
   border: 3px solid #333;
-  box-sizing: border-box;
   transition: all .3s;
 }
 .btn:hover {
@@ -90,8 +91,7 @@
   border: 3px solid #333;
 }
 
-/* write */
-.write-form {
+.form-style {
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -99,6 +99,7 @@
   margin: 12px auto;
 }
 
+/* write */
 .write-form label {
   margin-bottom: 12px;
   font-weight: 800;
@@ -117,12 +118,12 @@
   outline: none;
   border-bottom: 5px solid #000;
 }
-.write-info {
-  color: red;
-  padding: 1px 4px;
-  opacity: 0.7;
+.write-form #rating::placeholder {
+  opacity: 0.5;
+  font-style: italic;
 }
 
+/* postdetail */
 .post-cont {
   width: 600px;
   display: flex;
@@ -142,6 +143,16 @@
 .post-content {
   margin: 20px 0;
   font-size: 25px;
+  font-family: 'Gowun Batang', serif;
+}
+
+/* del */
+.del-form {
+  align-items: center;
+}
+.del-msg {
+  margin: 20px 0;
+  font-size: 27px;
   font-family: 'Gowun Batang', serif;
 }
 

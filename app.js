@@ -18,6 +18,7 @@ pathSet = path.join(path.join(__dirname + '/resource'), '/static');
 app.use('/', express.static(pathSet));
 app.use('/movie', express.static(pathSet));
 app.use('/movie/edit', express.static(pathSet));
+app.use('/movie/del', express.static(pathSet));
 
 let env = nunjucks.configure('resource/template', {
     autoescape: true,

@@ -28,6 +28,13 @@ router.get('/edit/:id', (req, res, next) => {
     .then(movie => res.render('edit.html', {movie}));
 })
 
+// 삭제
+router.get('/del/:id', (req, res, next) => {
+    const id = req.params.id;
+    moviedatabase.findById(id)
+    .then(movie => res.render('del.html', {movie}));
+})
+
 
 // POST - 작성
 router.post('/', (req, res, next) => {
@@ -50,15 +57,15 @@ router.put('/edit/:id', (req, res, next) => {
     const newBody = req.body;
     console.log("수정 시작", newBody);
     moviedatabase.updateMovie(id, newBody)
-    .then(movie => res.redirect('/movie'));
+    .then( () => res.redirect('/movie'));
 })
 
-// 삭제(DELETE) : blog/:id
+// DELETE - 삭제
 router.delete('/del/:id', (req, res, next) => {
     const id = req.params.id;
-
-    moviedatabase = moviedatabase.filter(b => b.id != id)
-    .then(movie => res.render('index.html', {movie}));
+    console.log("삭제 시작");
+    moviedatabase.delMovie(id)
+    .then( () => res.redirect('/movie'));
 })
 
 

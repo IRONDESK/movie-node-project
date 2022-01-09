@@ -52,12 +52,16 @@ async function updateMovie(updateId, updateBody) {
     return Movie.findByIdAndUpdate(updateId, updateBody);
 }
 
+async function delMovie(updateId) {
+    return Movie.findByIdAndDelete(updateId);
+}
+
 async function getAll() {
     console.log('데이터 모두 출력');
     return Movie.find({});
 }
 
-module.exports = {findByTitle, findByRating, findById, createMovie, getAll, updateMovie, }
+module.exports = {findByTitle, findByRating, findById, createMovie, getAll, updateMovie, delMovie, }
 
 
 
