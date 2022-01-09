@@ -48,9 +48,8 @@ async function createMovie(movie) {
     return new Movie(movie).save().then((movie) => movie._id);
 }
 
-async function updateMovie(movie) {
-    console.log('데이터 수정 시작');
-    return Movie(movie).update(movie);
+async function updateMovie(updateId, updateBody) {
+    return Movie.findByIdAndUpdate(updateId, updateBody);
 }
 
 async function getAll() {

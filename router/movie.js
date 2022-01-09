@@ -45,26 +45,12 @@ router.post('/', (req, res, next) => {
 })
 
 // PUT - 수정
-router.put('/:id', (req, res, next) => {
+router.put('/edit/:id', (req, res, next) => {
     const id = req.params.id;
-
-    const title = req.body.title;
-    const content = req.body.content;
-    const rating = req.body.rating;
-    const watchDate = req.body.watchDate;
-    let updatedMovieData = {
-        title, content, rating, watchDate
-    }
-
-    moviedatabase.updateMovie(
-        {id},
-        {$set: updatedMovieData}
-    );
-    if (movie){ // 각각의 값이 비어있을 수도 있음
-        res.redirect("/movie");
-    } else {
-        res.status(404);
-    }
+    const newBody = req.body;
+    console.log("수정 시작", newBody);
+    moviedatabase.updateMovie(id, newBody)
+    .then(movie => res.redirect('/movie'));
 })
 
 // 삭제(DELETE) : blog/:id
