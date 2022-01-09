@@ -12,6 +12,7 @@ app.set('view engine', 'html');
 
 // 라우터
 const movieRouter = require('./router/movie.js');
+const naverRouter = require('./router/naver.js');
 
 // 경로
 pathSet = path.join(path.join(__dirname + '/resource'), '/static');
@@ -36,17 +37,13 @@ app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 
 app.get('/', (req, res, next) => {
-    const data = movieRouter.moviedatabase;
     console.log('app.js에서 get');
-    res.render('index.html', {data});
+    res.sendStatus(500);
 });
 
-
+// 분기
 app.use('/movie', movieRouter);
-
-// app.get('/contact', (req, res, next) => {
-//     res.render('contact.html');
-// });
+app.use('/naver', naverRouter);
 
 app.use((req, res, next) => {
     res.sendStatus(404);
