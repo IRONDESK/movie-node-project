@@ -1,13 +1,12 @@
 const express = require('express');
 let moviedatabase = require('../database/dataMovie.js');
-let naverSearch = require('./naver');
 
 const router = express.Router();
 
 // 메인
 router.get('/', (req, res, next) => {
     moviedatabase.getAll()
-    .then(data => res.render('index.html', {data, naverSearch} ));
+    .then(data => res.render('index.html', {data} ));
 })
 
 // 작성
@@ -41,11 +40,12 @@ router.get('/del/:id', (req, res, next) => {
 router.post('/', (req, res, next) => {
     // const id = moviedatabase.length + 1;
     const title = req.body.title;
+    const imagelink = req.body.imagelink;
     const content = req.body.content;
     const rating = req.body.rating;
     const watchDate = req.body.watchDate;
     let newMovieData = {
-        title, content, rating, watchDate
+        title, imagelink, content, rating, watchDate
     }
     const item = moviedatabase.createMovie(newMovieData);
     res.redirect("/movie");

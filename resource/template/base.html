@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>영화 기록 남기기</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/reset.css" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- Navigation-->
-        <!-- Page Header-->
-        <h1 class="main-title">
-            <a href="/movie">My History of Movie</a>
-        </h1>
-        <!-- Main Content-->
-        {% block content %}
-        {% endblock %}
-        <!-- Footer-->
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="Content-Security-Policy" content="default-src *;
+   img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+   style-src  'self' 'unsafe-inline' *">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>영화 기록 남기기</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/reset.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation-->
+    <!-- Page Header-->
+    <h1 class="main-title">
+        <a href="/movie">My History of Movie</a>
+    </h1>
+    <!-- Main Content-->
+    {% block content %}
+    {% endblock %}
+    <!-- Footer-->
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
 </html>

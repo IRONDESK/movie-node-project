@@ -123,6 +123,34 @@
   font-style: italic;
 }
 
+.searchBtn {
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+  padding: 3px 5px;
+  font-size: 16px;
+}
+.imagelink-list {
+  margin-bottom: 18px;
+}
+.imagelink-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.imagelink-list ul li {
+  cursor: pointer;
+  padding: 8px;
+  background-color: #ebebeb;
+  border: 3px solid #ebebeb;
+  width: calc(100%/3-16px);
+  transition: border .3s;
+}
+.imagelink-list ul li:hover {
+  border: 3px solid black;
+  background-color: #f2f2f2;
+}
+
 /* postdetail */
 .post-cont {
   width: 600px;
