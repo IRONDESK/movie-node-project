@@ -1,22 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section class="form-container">
     <form class="form-style write-form" action="?_method=PUT" method="post">
         <label for="title">영화명 <span class="searchBtn">검색</span></label>
-        <input type="text" id="title" name="title" value="{{movie.title}}"><br>
-        <div class="imagelink-list">
-            <ul>
-                
-            </ul>
-        </div>
+        <input type="text" id="title" name="title" value="{{movie.title}}" required><br>
         <label for="imagelink">이미지</label>
         <input type="text" id="imagelink" name="imagelink" value="{{movie.imagelink}}"><br>
         <label for="section">평점</label>
         <input type="number" id="rating" name="rating" min="1" max="5" value={{movie.rating}}><br>
         <label for="content">간단평</label>
-        <textarea type="text" id="content" name="content">{{movie.content}}</textarea><br>
+        <textarea type="text" id="content" name="content" required>{{movie.content}}</textarea><br>
         <label for="section">감상일</label>
-        <input type="date" id="watchDate" name="watchDate" value={{ movie.watchDate | date("YYYY-MM-DD") }}><br>
-        <button type="submit" class="btn btn-submit">작성</button>
+        <input type="date" id="watchDate" name="watchDate" value={{ movie.watchDate | date("YYYY-MM-DD") }} required><br>
+        <button type="submit" class="btn btn-submit">SUBMIT</button>
     </form>
+    <article class="imagelink-list">
+        <ul>
+            <h3 class="non-data">영화명을 검색해주세요.</h3>
+        </ul>
+    </article>
+</section>
 {% endblock %}

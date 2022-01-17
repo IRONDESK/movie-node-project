@@ -11,28 +11,47 @@ function GetNaverMovieImg(keyword){
 }
 
 
-const searchBtn = document.querySelector(".searchBtn");
-const titleInput = document.querySelector("form #title");
-const imglinkInput = document.querySelector("form #imagelink");
-const imglinkCont = document.querySelector(".imagelink-list ul");
+const formContainer = document.querySelector(".form-container");
+const searchBtn = formContainer.querySelector(".form-style .searchBtn");
+const titleInput = formContainer.querySelector(".form-style #title");
+const imglinkInput = formContainer.querySelector(".form-style #imagelink");
+const imglinkCont = formContainer.querySelector(".imagelink-list ul");
+const SelectedImgPlace = formContainer.querySelector(".selected-img-place");
 
 searchBtn.addEventListener("click", () => {
-    const findNaver = GetNaverMovieImg(titleInput.value);
-    const listOfMovie = findNaver.map( (item) => {
-        let titleChange = item.title.replace(/(<([^>]+)>)/ig,"");
-        return `<li data-title="${titleChange}" data-imglink="${item.image}">
-        <b>${titleChange}</b> (${item.pubDate})<br>
-        감독 | ${item.director.split("|")}<br>
-        ${item.actor.split("|").slice(0, 3).join(", ")}<br>
-        </li>`
-    }).join('');
-    imglinkCont.innerHTML = listOfMovie;
+    findNaverMovie();
 });
 
+function findNaverMovie () {
+    const searchResultArray = GetNaverMovieImg(titleInput.value);
+    const searchResult = searchResultArray.map( (item, index) => {
+        let titleChange = item.title.replace(/(<([^>]+)>)/ig,"");
+        return `<li>
+<input
+    type="radio"
+    id="item-No${index}"
+    name="result-movie"
+    
+    data-title="${titleChange}"
+    data-imglink="${item.image}"
+></input>
+<label
+    for="item-No${index}"
+
+>
+                <b>${titleChange}</b> (${item.pubDate})<br>
+                ${item.director.split("|")[0]}<br>
+                ${item.actor.split("|").slice(0, 3).join(", ")}
+</label>
+        </li>`
+    }).join('');
+    imglinkCont.innerHTML = searchResult;
+}
+
 imglinkCont.addEventListener("click", (e) => {
-    titleInput.value = e.target.dataset.title;
-    imglinkInput.value = e.target.dataset.imglink;
-    if (e.target.dataset.title == undefined) {
-        alert("error")
+    if (e.target.dataset.title !== undefined) {
+        titleInput.value = e.target.dataset.title;
+        imglinkInput.value = e.target.dataset.imglink;
+        SelectedImgPlace.innerHTML = `<img src="${e.target.dataset.imglink}">`;
     }
 })

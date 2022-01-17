@@ -8,7 +8,7 @@
     <section class="watchlist">
     {% for i in data %}
         <a href="/movie/{{ i._id }}" class="movie-item">
-            <img src="{{ i.imagelink }}" alt="{{ i.title }}">
+            <img src="{{ i.imagelink }}" alt="{{ i.title }}" class="item-image">
             <h2 class="item-title">{{ i.title }}</h2>
             <span class="item-rate">{{ "★".repeat(i.rating) }}</span>
             <p class="item-content">{{ i.content }}</p>
@@ -18,7 +18,7 @@
     {% endif %}
     <!-- Pager-->
     <div class="pager">
-        <a class="btn" href="/movie/write">글쓰기</a>
+        <a class="btn" href="/movie/write">WRITE</a>
     </div>
     <div id="here">
         
