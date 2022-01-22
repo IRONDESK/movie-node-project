@@ -2,27 +2,28 @@
 
 {% block content %}
 
-    {% if data.length == 0 %}
-    <h3 class="non-data">입력된 기록이 없습니다.<br>당신의 첫 번째 영화 기록을 남겨주세요.</h3>
-    {% else %}
-    <section class="watchlist">
+{% if data.length == 0 %}
+<h3 class="non-data">입력된 기록이 없습니다.<br>당신의 첫 번째 영화 기록을 남겨주세요.</h3>
+{% else %}
+<section class="watchlist">
     {% for i in data %}
-        <a href="/movie/{{ i._id }}" class="movie-item">
-            <img src="{{ i.imagelink }}" alt="{{ i.title }}" class="item-image">
+    <a href="/movie/{{ i._id }}" class="movie-item">
+        <img src="{{ i.imagelink }}" alt="{{ i.title }}" class="item-image">
+        <article class="item-text-wrap">
             <h2 class="item-title">{{ i.title }}</h2>
             <span class="item-rate">{{ "★".repeat(i.rating) }}</span>
             <p class="item-content">{{ i.content }}</p>
-        </a>
+        </article>
+    </a>
     {% endfor %}
-    </section>
-    {% endif %}
-    <!-- Pager-->
-    <div class="pager">
-        <a class="btn" href="/movie/write">WRITE</a>
-    </div>
-    <div id="here">
-        
-    </div>
-    index.html
+</section>
+{% endif %}
+<!-- Pager-->
+<div class="pager">
+    <a class="btn" href="/movie/write">WRITE</a>
+</div>
+<div id="here">
+
+</div>
 
 {% endblock %}

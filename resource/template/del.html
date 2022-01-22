@@ -4,8 +4,12 @@
     <form class="form-style del-form" action="?_method=DELETE" method="post">
         <h2 class="del-msg">삭제하시겠습니까?</h2>
         <article class="del-btn-cont">
-            <button type="submit" class="btn btn-submit">확인</button>
-            <a href="../{{movie._id}}" class="btn btn-submit">취소</a>
+            <button type="submit" class="btn btn-submit">
+                YES
+            </button>
+            <a href="../{{movie._id}}" class="btn btn-submit">
+                NO
+            </a>
         </article>
     </form>
 {% endblock %}

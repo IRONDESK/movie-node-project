@@ -3,9 +3,12 @@
 {% block content %}
 <section class="form-container">
     <form class="form-style write-form" action="?_method=PUT" method="post">
-        <label for="title">영화명 <span class="searchBtn">검색</span></label>
-        <input type="text" id="title" name="title" value="{{movie.title}}" required><br>
-        <label for="imagelink">이미지</label>
+        <label for="title">영화명</label>
+        <p class="search-btn-wrap">
+            <input type="text" id="title" name="title" value="{{movie.title}}" required>
+            <button type="button" class="searchBtn">SEARCH</button>
+        </p><br>
+        <label for="imagelink" class="label-img">이미지</label>
         <input type="text" id="imagelink" name="imagelink" value="{{movie.imagelink}}"><br>
         <label for="section">평점</label>
         <input type="number" id="rating" name="rating" min="1" max="5" value={{movie.rating}}><br>
@@ -16,6 +19,7 @@
         <button type="submit" class="btn btn-submit">SUBMIT</button>
     </form>
     <article class="imagelink-list">
+        <div class="selected-img-place"></div>
         <ul>
             <h3 class="non-data">영화명을 검색해주세요.</h3>
         </ul>

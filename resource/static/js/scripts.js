@@ -52,6 +52,9 @@ imglinkCont.addEventListener("click", (e) => {
     if (e.target.dataset.title !== undefined) {
         titleInput.value = e.target.dataset.title;
         imglinkInput.value = e.target.dataset.imglink;
-        SelectedImgPlace.innerHTML = `<img src="${e.target.dataset.imglink}">`;
+        SelectedImgPlace.innerHTML = `<img src="${e.target.dataset.imglink}" class="selected-movie-img">`;
     }
 })
+
+
+// tinymce.init({selector:'textarea'});

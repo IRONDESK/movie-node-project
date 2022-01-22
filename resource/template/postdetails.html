@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<img src="{{movie.imagelink}}" class="post-img">
 <section class="post-cont">
-    <h1 class="post-title">{{ movie.title }}</h1>
+    <h1 class="post-title">
+        {{ movie.title }}
+    </h1>
     <span class="post-rate">{{ "★".repeat(movie.rating) }}</span>
     <p class="post-content">{{ movie.content }}</p>
-    <p> <strong>감상일</stron> {{ movie.watchDate | date("YYYY년 M월 D일")}}</p>
-    <p> <strong>작성일</stron> {{ movie.pubDate | date("YYYY년 M월 D일")}}</p>
+    <p> <strong>감상일</strong> {{ movie.watchDate | date("YYYY년 M월 D일")}}</p>
+    <p> <strong>작성일</strong> {{ movie.pubDate | date("YYYY년 M월 D일")}}</p>
 </section>
 <div class="pager">
     <a class="btn" href="edit/{{ movie._id }}">EDIT</a>

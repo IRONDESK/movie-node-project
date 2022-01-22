@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
+
 const dateFilter = require('nunjucks-date-filter');
 const methodOverride = require('method-override'); // PUT, DEL을 사용하기 위한 오버라이드
 const path = require('path');
@@ -32,7 +33,21 @@ app.use(express.json());
 app.use(express.urlencoded( {extended : false } ));
 
 app.use(helmet());
-app.use(cors());
+// 네이버 API에서 포스터 가져올 때, CSP 이슈 해결
+// 웹 리소스 종류를 특정해서 허용하는 보안정책 Content Security Policy
+app.use(
+    helmet.contentSecurityPolicy({
+        useDefaults: true,
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'"],
+            objectSrc: ["'none'"],
+            imgSrc: ["'self'", 'https://ssl.pstatic.net/'],
+            upgradeInsecureRequests: [],
+        },
+        reportOnly: false,
+    })
+    );
 app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 
