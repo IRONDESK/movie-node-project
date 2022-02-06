@@ -13,28 +13,28 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
     <link href="css/reset.css" rel="stylesheet" />
 </head>
 
 <body>
-    <!-- Navigation-->
-    <!-- Page Header-->
-    <main class="main-container">
-        <h1 class="main-title">
-            <a href="/movie">My Record of <strong>Movie</strong></a>
-        </h1>
-        <!-- Main Content-->
+    <header>
+        <ul class="nav">
+            <li>menu1</li>
+            <li class="title">
+                <a href="/movie">
+                MY RECORD OF<br>
+                <strong>MOVIE</strong>
+                </a>
+            </li>
+            <li>menu2</li>
+        </ul>
+    </header>
+    <main>
         {% block content %}
         {% endblock %}
-        <!-- Footer-->
-        <!-- Core theme JS-->
     </main>
     
-    <script src="js/scripts.js"></script>
-<!-- <textarea>Next, use our Get Started docs to setup Tiny!</textarea>
-    
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
+    <script src="js/scripts.js"></script>    
 </body>
-
 </html>
