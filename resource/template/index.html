@@ -7,27 +7,29 @@
     입력된 기록이 없습니다.<br>당신의 첫 번째 영화 기록을 남겨주세요.
 </section>
 {% else %}
-<input type="checkbox" id="view" hidden>
+<input type="checkbox" id="view" checked hidden>
 <label for="view" class="view-btn">
     <span></span>
 </label>
-<section class="watch-list">
-    {% for i in data %}
-    <a href="/movie/{{ i._id }}" class="movie-item">
-        <img src="{{ i.imagelink }}" alt="{{ i.title }}" class="item-image">
-        <article class="item-text-wrap">
-            <h2 class="item-title">{{ i.title }}</h2>
-            <span class="item-rate">{{ "★".repeat(i.rating) }}</span>
-            <p class="item-content">{{ i.content }}</p>
-        </article>
-    </a>
-    {% endfor %}
+<section class="list-wrap">
+    <section class="watch-list">
+        {% for i in data %}
+        <a href="/movie/{{ i._id }}" class="movie-item">
+            <img src="{{ i.imagelink }}" alt="{{ i.title }}" class="item-image">
+            <article class="item-text-wrap">
+                <h2 class="item-title">{{ i.title }}</h2>
+                <span class="item-rate">{{ "★".repeat(i.rating) }}</span>
+                <p class="item-content">{{ i.content }}</p>
+            </article>
+        </a>
+        {% endfor %}
+    </section>
 </section>
 {% endif %}
-<!-- Pager-->
-<div class="pager">
-    <a class="btn" href="/movie/write">WRITE</a>
-</div>
+
+<footer class="page-option">
+    <a class="a-btn" href="/movie/write">WRITE</a>
+</footer>
 <div id="here">
 
 </div>
