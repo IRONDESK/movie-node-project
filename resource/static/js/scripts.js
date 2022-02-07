@@ -8,7 +8,7 @@ function GetNaverMovieImg(keyword){
     req.send(null);
     const obj = JSON.parse(req.responseText);
     return obj.items;    
-}
+};
 
 
 const formContainer = document.querySelector(".form-container");
@@ -49,12 +49,14 @@ function findNaverMovie () {
     imglinkCont.innerHTML = searchResult;
 }
 
+// 선택한 별점 버튼 입력
 rateBtnCont.addEventListener("click", (e) => {
     if (e.target.dataset.rate !== undefined) {
         ratingInput.value = e.target.dataset.rate;
     }
 });
 
+// 선택한 영화의 이미지 보이기
 imglinkCont.addEventListener("click", (e) => {
     if (e.target.dataset.title !== undefined) {
         titleInput.value = e.target.dataset.title;
@@ -63,5 +65,8 @@ imglinkCont.addEventListener("click", (e) => {
     }
 });
 
-
-// tinymce.init({selector:'textarea'});
+// 글 수정시 기입력된 별점 버튼 선택
+if (ratingInput.value) {
+    const ratedBtn = rateBtnCont.querySelector('#rate'+ratingInput.value);
+    ratedBtn.checked = true;
+}

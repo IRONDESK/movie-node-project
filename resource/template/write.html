@@ -2,8 +2,8 @@
 
 {% block content %}
 <section class="form-container">
-    <form class="form-style write-form" action="/movie" method="post">
-        <article class="title-search-wrap">
+    <form class="form-style" action="/movie" method="post">
+        <article class="title-head-wrap">
             <label for="title" hidden>영화명</label>
             <div class="selected-img-place"></div>
             <input type="text" id="title" name="title" placeholder="리뷰할 영화명을 입력해주세요." autocomplete="off" required>
@@ -41,7 +41,9 @@
             <label for="section" class="label-option">감상일</label>
             <input type="date" id="watchDate" name="watchDate" required>
         </article>
-        <button type="submit" class="btn">SUBMIT</button>
+        <article class="submit-container">
+            <button type="submit" class="btn">SUBMIT</button>
+        </article>
     </form>
 
 </section>
