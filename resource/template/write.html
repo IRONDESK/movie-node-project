@@ -3,26 +3,46 @@
 {% block content %}
 <section class="form-container">
     <form class="form-style write-form" action="/movie" method="post">
-        <label for="title">영화명</label>
-        <p class="search-btn-wrap">
-            <input type="text" id="title" name="title" required>
-            <button type="button" class="searchBtn">SEARCH</button>
-        </p><br>
-        <label for="imagelink" class="label-img">이미지</label>
-        <input type="text" id="imagelink" name="imagelink"><br>
-        <label for="section">평점</label>
-        <input type="number" id="rating" name="rating" min="1" max="5" placeholder="평점은 1~5점 사이의 값만을 부여할 수 있습니다." required><br>
-        <label for="content">간단평</label>
-        <textarea type="text" id="content" name="content" required></textarea><br>
-        <label for="section">감상일</label>
-        <input type="date" id="watchDate" name="watchDate" required><br>
-        <button type="submit" class="btn btn-submit">SUBMIT</button>
+        <article class="title-search-wrap">
+            <label for="title" hidden>영화명</label>
+            <div class="selected-img-place"></div>
+            <input type="text" id="title" name="title" placeholder="리뷰할 영화명을 입력해주세요." autocomplete="off" required>
+            <button type="button" class="search-btn"></button>
+        </article>
+
+        <article class="imagelink-list">
+            <ul>
+            </ul>
+        </article>
+        <label for="imagelink" hidden>이미지</label>
+        <input type="text" id="imagelink" name="imagelink" hidden><br>
+
+        <article class="rate-wrap">
+            <label for="section" class="label-option">평점</label>
+            <article class="rate-btn">
+                <input type="radio" name="rate" id="rate1" hidden>
+                <label for="rate1" data-rate="1">★</label>
+                <input type="radio" name="rate" id="rate2" hidden>
+                <label for="rate2" data-rate="2">★★</label>
+                <input type="radio" name="rate" id="rate3" hidden>
+                <label for="rate3" data-rate="3">★★★</label>
+                <input type="radio" name="rate" id="rate4" hidden>
+                <label for="rate4" data-rate="4">★★★★</label>
+                <input type="radio" name="rate" id="rate5" hidden>
+                <label for="rate5" data-rate="5">★★★★★</label>
+            </article>
+            <input type="number" id="rating" name="rating" min="1" max="5" required hidden>
+        </article>
+        <article class="comment-wrap">
+            <label for="content" class="label-option">간단평</label>
+            <textarea type="text" id="content" name="content" required></textarea>
+        </article>
+        <article class="watch-wrap">
+            <label for="section" class="label-option">감상일</label>
+            <input type="date" id="watchDate" name="watchDate" required>
+        </article>
+        <button type="submit" class="btn">SUBMIT</button>
     </form>
-    <article class="imagelink-list">
-        <div class="selected-img-place"></div>
-        <ul>
-            <h3 class="non-data">영화명을 검색해주세요.</h3>
-        </ul>
-    </article>
+
 </section>
 {% endblock %}
