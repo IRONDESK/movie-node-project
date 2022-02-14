@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="form-container">
+    <form class="form-style">
+        <article class="title-head-wrap">
+            <label for="title" hidden>영화명</label>
+            <div class="selected-img-place"></div>
+            <input type="text" id="title" name="title" placeholder="영화명을 입력해주세요." autocomplete="off" required>
+            <button type="button" class="search-btn" id="serachPageBtn"></button>
+            <span class="result-amount"></span>
+        </article>
+    
+        <ul class="result-view">
+        </ul>
+
+    </form> 
+</section>
+{% endblock %}

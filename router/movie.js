@@ -9,6 +9,11 @@ router.get('/', (req, res, next) => {
     .then(data => res.render('index.html', {data} ));
 })
 
+// 검색
+router.get('/search', (req, res, next) => {
+    res.render('search.html');
+})
+
 // 작성
 router.get('/write', (req, res, next) => {
     res.render('write.html');
