@@ -342,7 +342,6 @@ body {
 
 .btn {
   margin-left: 5px;
-  min-width: 85px;
   cursor: pointer;
   color: #3f2e68;
   font-family: 'Archivo';
@@ -359,7 +358,6 @@ body {
 .a-btn {
   padding: 1px 6px;
   margin-left: 5px;
-  min-width: 85px;
   cursor: pointer;
   color: #3f2e68;
   font-family: 'Archivo';
@@ -666,79 +664,6 @@ body {
   margin: 20px 0;
   color: #fff;
   font-size: 27px;
-}
-
-/* 검색 페이지 */
-.form-style .result-amount {
-  display: block;
-  margin: 13px 0;
-  color: #fff;
-  font-size: 18px;
-}
-
-.result-view {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 15px;
-}
-
-.result-view .search-page-item {
-  padding: 19px;
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-.result-view .search-page-item:first-child {
-  margin-top: 15px;
-}
-
-.result-view .search-page-item:last-child {
-  margin-bottom: 25px;
-}
-
-.result-view .search-page-item p {
-  display: block;
-  margin-bottom: 4px;
-  line-height: 24px;
-}
-
-.result-view .search-page-item p strong {
-  font-size: 27px;
-  font-weight: 700;
-}
-
-.result-view .search-page-item p i {
-  opacity: 0.8;
-}
-
-.result-view .search-page-item img {
-  float: right;
-  width: 100px;
-}
-
-.result-view .search-page-item .detail-list {
-  line-height: 24px;
-}
-
-.result-view .search-page-item .detail-list dt {
-  margin-right: 6px;
-  float: left;
-  font-weight: 600;
-}
-
-.result-view .search-page-item .detail-list .result-rating::before {
-  display: inline;
-  content: "★";
-  color: crimson;
-}
-
-.result-view .search-page-item .detail-list .result-pubdate::after {
-  display: inline;
-  content: "년";
 }
 
 @media (max-width: 640px) {

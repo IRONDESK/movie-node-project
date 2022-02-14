@@ -12,9 +12,8 @@ function GetNaverMovieImg(keyword){
 
 
 const formContainer = document.querySelector(".form-container");
-const searchBtn = formContainer.querySelector(".form-style .search-btn");
-const searchPageBtn = formContainer.querySelector(".form-style #serachPageBtn");
-const rateBtnCont = formContainer.querySelector(".rate-wrap .rate-btn")
+const searchBtn = document.getElementById("formPageBtn");
+const rateBtnCont = formContainer.querySelector(".rate-wrap .rate-btn");
 const titleInput = formContainer.querySelector(".form-style #title");
 const ratingInput = formContainer.querySelector(".form-style #rating");
 const imglinkInput = formContainer.querySelector(".form-style #imagelink");
@@ -23,9 +22,6 @@ const SelectedImgPlace = formContainer.querySelector(".selected-img-place");
 
 searchBtn.addEventListener("click", () => {
     findNaverMovie();
-});
-searchPageBtn.addEventListener("click", () => {
-    getSearchResult();
 });
 
 function findNaverMovie () {
@@ -51,41 +47,7 @@ function findNaverMovie () {
         </li>`
     }).join('');
     imglinkCont.innerHTML = searchResult;
-}
-
-// 영화 검색 페이지 결과
-const resultView = formContainer.querySelector(".result-view");
-const resultAmount = formContainer.querySelector(".result-amount");
-function getSearchResult () {
-    const searchResultArray = GetNaverMovieImg(titleInput.value);
-    const searchResult = searchResultArray.map( (item, index) => {
-        let titleChange = item.title.replace(/(<([^>]+)>)/ig,"");
-        function dataCheck( name, target, className="" ) {
-            if (target && target !== "0.00") {
-                return `
-                    <dt>${name}</dt>
-                    <dd><span class=${className}>${target}</span></dd>
-                `;
-            }
-            else { return "" }
-        };
-        return `<li class="search-page-item" id="result-item-${index}">
-                <img src=${item.image}>
-                <p>
-                    <strong>${titleChange}</strong><br />
-                    <i>${item.subtitle}</i>
-                </p>
-                <dl class="detail-list">
-                    ${dataCheck("제작", item.pubDate, "result-pubdate")}
-                    ${dataCheck("감독", item.director.slice(0, -1).split("|").join(", "))}
-                    ${dataCheck("출연", item.actor.slice(0, -1).split("|").join(", "))}
-                    ${dataCheck("네이버 평점", item.userRating, "result-rating")}
-                </dl>
-        </li>`
-    }).join('');
-    resultAmount.innerHTML = searchResultArray.length + "개의 검색 결과를 발견했습니다.";
-    resultView.innerHTML = searchResult;
-}
+};
 
 // 선택한 별점 버튼 입력
 rateBtnCont.addEventListener("click", (e) => {
@@ -107,4 +69,4 @@ imglinkCont.addEventListener("click", (e) => {
 if (ratingInput.value) {
     const ratedBtn = rateBtnCont.querySelector('#rate'+ratingInput.value);
     ratedBtn.checked = true;
-}
+};

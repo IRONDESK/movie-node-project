@@ -4,7 +4,7 @@
 
 @mixin btn-style {
   margin-left: 5px;
-  min-width: 85px;
+  // min-width: 85px;
   cursor: pointer;
   color: #3f2e68;
   font-family: 'Archivo';
@@ -500,68 +500,6 @@ body {
   margin: 20px 0;
   color: #fff;
   font-size: 27px;
-}
-
-/* 검색 페이지 */
-.form-style {
-  .result-amount {
-    display: block;
-    margin: 13px 0;
-    color: #fff;
-    font-size: 18px;
-  }
-}
-.result-view {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  .search-page-item {
-    padding: 19px;
-    background-color: rgba(255, 255, 255, 0.8);
-    &:first-child {
-      margin-top: 15px;
-    }
-    &:last-child {
-      margin-bottom: 25px;
-    }
-    p {
-      display: block;
-      margin-bottom: 4px;
-      line-height: 24px;
-      strong {
-        font-size: 27px;
-        font-weight: 700;
-      }
-      i {
-        opacity: 0.8;
-      }
-    }
-    img {
-      float: right;
-      width: 100px;
-    }
-    .detail-list {
-      line-height: 24px;
-      dt {
-        margin-right: 6px;
-        float: left;
-        font-weight: 600;
-      }
-      .result-rating {
-        &::before {
-          display: inline;
-          content: "★";
-          color: crimson;
-        }
-      }
-      .result-pubdate {
-        &::after {
-          display: inline;
-          content: "년";
-        }
-      }
-    }
-  }
 }
 
 @media (max-width: 640px) {

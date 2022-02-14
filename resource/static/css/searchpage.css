@@ -1,0 +1,127 @@
+@charset "UTF-8";
+/* form */
+.searchpage-container {
+  max-width: 880px;
+  height: 680px;
+  margin: 12px auto;
+}
+
+.searchpage-container input {
+  padding: 2px 5px;
+  background: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 26px;
+  border: none;
+  border-bottom: 2px solid #fff;
+}
+
+.searchpage-container input:focus {
+  outline: none;
+  border-bottom: 5px solid #fff;
+}
+
+.searchpage-container input::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.searchpage-container input:-ms-input-placeholder {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.searchpage-container input::-ms-input-placeholder {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.searchpage-container input::placeholder {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.searchpage-container .result-amount {
+  display: block;
+  margin: 13px 0;
+  color: #fff;
+  font-size: 18px;
+}
+
+.searchpage-container #serachPageBtn {
+  cursor: pointer;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background-image: url("../assets/search.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 100%;
+  border: none;
+}
+
+.result-view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+}
+
+.result-view .search-page-item {
+  padding: 19px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.result-view .search-page-item:first-child {
+  margin-top: 15px;
+}
+
+.result-view .search-page-item:last-child {
+  margin-bottom: 25px;
+}
+
+.result-view .search-page-item p {
+  display: block;
+  margin-bottom: 4px;
+  line-height: 24px;
+}
+
+.result-view .search-page-item p strong {
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.result-view .search-page-item p i {
+  opacity: 0.8;
+}
+
+.result-view .search-page-item img {
+  float: right;
+  width: 100px;
+}
+
+.result-view .search-page-item .detail-list {
+  line-height: 24px;
+}
+
+.result-view .search-page-item .detail-list dt {
+  margin-right: 6px;
+  float: left;
+  font-weight: 600;
+}
+
+.result-view .search-page-item .detail-list .result-rating::before {
+  display: inline;
+  content: "★";
+  color: crimson;
+}
+
+.result-view .search-page-item .detail-list .result-pubdate::after {
+  display: inline;
+  content: "년";
+}
+/*# sourceMappingURL=searchpage.css.map */
