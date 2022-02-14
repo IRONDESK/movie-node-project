@@ -39,7 +39,10 @@ function getResult () {
             }
             else { return "" }
         };
-        return `<li class="search-page-item" id="result-item-${index}">
+        return `<li
+            class="search-page-item"
+            id="result-item-${index}"
+            style="animation-delay: ${index * 0.3}s">
                 <img src=${item.image}>
                 <p>
                     <strong>${titleChange}</strong><br />
