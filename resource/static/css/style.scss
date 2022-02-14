@@ -28,17 +28,28 @@ body {
 .nav {
   display: flex;
   align-items: center;
-  width: 650px;
+  justify-content: space-between;
+  width: 880px;
   margin: 40px auto;
-  li {
+  .side {
     flex: 1;
-    text-align: center;
-    color: #fff;
+    text-align: right;
+    a {
+      padding: 2px;
+      color: #fff;
+      font-size: 18px;
+      &:hover {
+        border-bottom: 3px solid #fff;
+        font-weight: 600;
+      }
+    }
   }
   .title {
     display: block;
     flex: 2;
-    font-size: 23px;
+    color: #fff;
+    font-size: 28px;
+    text-align: left;
   }
 }
 
